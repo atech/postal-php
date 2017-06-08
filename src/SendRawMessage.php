@@ -11,7 +11,14 @@ class SendRawMessage
     public function __construct($client)
     {
         $this->client = $client;
-        $this->attributes['rcpt_to'] = [];
+        $this->reset();
+    }
+
+    public function reset()
+    {
+        $this->attributes = [
+            'rcpt_to' => []
+        ];
     }
 
     public function mailFrom($address)
