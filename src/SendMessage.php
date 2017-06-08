@@ -10,11 +10,18 @@ class SendMessage
     public function __construct($client)
     {
         $this->client = $client;
-        $this->attributes['to'] = [];
-        $this->attributes['cc'] = [];
-        $this->attributes['bcc'] = [];
-        $this->attributes['headers'] = null;
-        $this->attributes['attachments'] = [];
+        $this->reset();
+    }
+
+    public function reset()
+    {
+        $this->attributes = [
+            'to' => [],
+            'cc' => [],
+            'bcc' => [],
+            'headers' => null,
+            'attachments' => []
+        ];
     }
 
     public function to($address)
